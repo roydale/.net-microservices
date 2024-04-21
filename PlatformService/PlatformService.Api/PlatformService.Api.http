@@ -1,0 +1,7 @@
+# @PlatformService.Api_HostAddress = http://localhost:5062
+@PlatformService.Api_HostAddress = http://localhost:7298
+
+GET {{PlatformService.Api_HostAddress}}/api/platforms/
+Accept: application/json
+
+###
