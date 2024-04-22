@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: platform-service-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: platform-service-api
+    template:
+        metadata:
+            labels:
+                app: platform-service-api
+        spec:
+            containers:
+              - name: platform-service-api
+                image: rcaliwag/platform-service-api:latest
