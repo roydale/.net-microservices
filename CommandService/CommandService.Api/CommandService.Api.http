@@ -1,0 +1,6 @@
+@CommandService.Api_HostAddress = http://localhost:5264
+
+GET {{CommandService.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
