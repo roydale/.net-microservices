@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes_Deployments", "K
 	ProjectSection(SolutionItems) = preProject
 		Kubernetes_Deployments\command-cluster-ip-service.yaml = Kubernetes_Deployments\command-cluster-ip-service.yaml
 		Kubernetes_Deployments\command-service-deployment.yaml = Kubernetes_Deployments\command-service-deployment.yaml
+		Kubernetes_Deployments\ingress-nginx-service.yaml = Kubernetes_Deployments\ingress-nginx-service.yaml
 		Kubernetes_Deployments\platform-cluster-ip-service.yaml = Kubernetes_Deployments\platform-cluster-ip-service.yaml
 		Kubernetes_Deployments\platform-node-port-service.yaml = Kubernetes_Deployments\platform-node-port-service.yaml
 		Kubernetes_Deployments\platform-service-deployment.yaml = Kubernetes_Deployments\platform-service-deployment.yaml
