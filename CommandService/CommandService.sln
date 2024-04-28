@@ -6,6 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandService.Api", "CommandService.Api\CommandService.Api.csproj", "{5969186A-9B3B-4A84-BF5D-EFD8AB8B2B03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes_Deployments", "Kubernetes_Deployments", "{9FC32397-6353-4867-B6D2-AF4500C163DC}"
+	ProjectSection(SolutionItems) = preProject
+		..\Kubernetes_Deployments\command-cluster-ip-service.yaml = ..\Kubernetes_Deployments\command-cluster-ip-service.yaml
+		..\Kubernetes_Deployments\command-service-deployment.yaml = ..\Kubernetes_Deployments\command-service-deployment.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker_Compose", "Docker_Compose", "{E4C562BC-6D1F-40CC-89C1-0BED78A87CE3}"
+	ProjectSection(SolutionItems) = preProject
+		..\Docker_Compose\docker-compose.yaml = ..\Docker_Compose\docker-compose.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

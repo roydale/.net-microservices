@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: command-service-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: command-service-api
+    template:
+        metadata:
+            labels:
+                app: command-service-api
+        spec:
+            containers:
+              - name: command-service-api
+                image: rcaliwag/command-service-api:latest

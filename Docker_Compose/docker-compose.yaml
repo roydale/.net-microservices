@@ -1,0 +1,26 @@
+name: acme_microservices
+services:
+  command-api:
+    build:
+      context: ..\CommandService\CommandService.Api
+      dockerfile: Dockerfile
+    image: rcaliwag/command-service-api
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8001"
+        protocol: tcp
+    container_name: command-service-api
+  platform-api:
+    build:
+      context: ..\PlatformService\PlatformService.Api
+      dockerfile: Dockerfile
+    image: rcaliwag/platform-service-api
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8000"
+        protocol: tcp
+    container_name: platform-service-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

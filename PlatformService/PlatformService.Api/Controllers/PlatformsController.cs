@@ -6,9 +6,8 @@ namespace PlatformService.Api.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class PlatformsController(PlatformsService _service) : Controller
+	public class PlatformsController(PlatformsService _service, SyncDataService _syncDataService) : Controller
 	{
-
 		[HttpGet]
 		public ActionResult<IEnumerable<PlatformReadDto>> GetPlatforms()
 		{
@@ -25,10 +24,11 @@ namespace PlatformService.Api.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult<PlatformReadDto> CreatePlatform(PlatformCreateDto platform)
+		public async Task<ActionResult<PlatformReadDto>> CreatePlatform(PlatformCreateDto platform)
 		{
 			Console.WriteLine("Creating Platform...");
 			var platformReadDto = _service.CreatePlatform(platform);
+			await _syncDataService.SendDataToCommandService(platformReadDto);
 			return CreatedAtRoute(nameof(GetPlatformById), new { platformReadDto.Id }, platformReadDto);
 		}
 	}
