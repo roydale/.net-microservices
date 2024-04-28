@@ -1,1 +1,1 @@
-Microservices APIs using Docker, Kubernetes (K8s)
+Microservices Architecture mini project using .Net 8, Docker, Kubernetes (K8s)
