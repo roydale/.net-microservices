@@ -7,13 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandService.Api", "Comma
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes_Deployments", "Kubernetes_Deployments", "{9FC32397-6353-4867-B6D2-AF4500C163DC}"
 	ProjectSection(SolutionItems) = preProject
-		..\Kubernetes_Deployments\command-cluster-ip-service.yaml = ..\Kubernetes_Deployments\command-cluster-ip-service.yaml
-		..\Kubernetes_Deployments\command-service-deployment.yaml = ..\Kubernetes_Deployments\command-service-deployment.yaml
+		..\Kubernetes_Deployments\CommandApi\command-cluster-ip-service.yaml = ..\Kubernetes_Deployments\CommandApi\command-cluster-ip-service.yaml
+		..\Kubernetes_Deployments\CommandApi\command-service-deployment.yaml = ..\Kubernetes_Deployments\CommandApi\command-service-deployment.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker_Compose", "Docker_Compose", "{E4C562BC-6D1F-40CC-89C1-0BED78A87CE3}"
 	ProjectSection(SolutionItems) = preProject
 		..\Docker_Compose\docker-compose.yaml = ..\Docker_Compose\docker-compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{13E40C59-CCB3-49B8-899B-BB1D256831B1}"
+	ProjectSection(SolutionItems) = preProject
+		..\Docker_Compose\config\.env.dev = ..\Docker_Compose\config\.env.dev
+		..\Docker_Compose\config\.env.prod = ..\Docker_Compose\config\.env.prod
 	EndProjectSection
 EndProject
 Global
@@ -29,6 +35,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13E40C59-CCB3-49B8-899B-BB1D256831B1} = {E4C562BC-6D1F-40CC-89C1-0BED78A87CE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA25D3DD-F3A4-45D3-92BA-CCB8CA4F46C9}

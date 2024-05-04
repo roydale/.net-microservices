@@ -1,4 +1,4 @@
-name: acme_microservices
+name: moha_microservices
 services:
   command-api:
     build:
@@ -23,4 +23,4 @@ services:
         protocol: tcp
     container_name: platform-service-api
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}

@@ -11,14 +11,14 @@ namespace PlatformService.Api.Controllers
 		[HttpGet]
 		public ActionResult<IEnumerable<PlatformReadDto>> GetPlatforms()
 		{
-			Console.WriteLine("Getting Platforms...");
+			Console.WriteLine("---> Getting Platforms...");
 			return Ok(_service.GetPlatforms());
 		}
 
 		[HttpGet("{id}", Name = "GetPlatformById")]
 		public ActionResult<PlatformReadDto> GetPlatformById([FromRoute] int id)
 		{
-			Console.WriteLine("Getting Platform By Id...");
+			Console.WriteLine("---> Getting Platform By Id...");
 			var platformReadDto = _service.GetPlatformById(id);
 			return platformReadDto != null ? Ok(platformReadDto) : NotFound();
 		}
@@ -26,7 +26,7 @@ namespace PlatformService.Api.Controllers
 		[HttpPost]
 		public async Task<ActionResult<PlatformReadDto>> CreatePlatform(PlatformCreateDto platform)
 		{
-			Console.WriteLine("Creating Platform...");
+			Console.WriteLine("---> Creating Platform...");
 			var platformReadDto = _service.CreatePlatform(platform);
 			await _syncDataService.SendDataToCommandService(platformReadDto);
 			return CreatedAtRoute(nameof(GetPlatformById), new { platformReadDto.Id }, platformReadDto);

@@ -40,6 +40,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{5D409034
 		Kubernetes_Deployments\MsSql\mssql-secret.yaml = Kubernetes_Deployments\MsSql\mssql-secret.yaml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{D2FA9B31-9802-4E2F-AB05-FACE4969D2C8}"
+	ProjectSection(SolutionItems) = preProject
+		Docker_Compose\config\.env.dev = Docker_Compose\config\.env.dev
+		Docker_Compose\config\.env.prod = Docker_Compose\config\.env.prod
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +68,7 @@ Global
 		{9B67DA1A-B0FB-482A-AC4F-8111D1217A95} = {A149DE7D-6942-43C9-B22D-A756A15E8CCA}
 		{DEF4577F-7E37-46D3-AC79-EBF4BE4A9A00} = {A149DE7D-6942-43C9-B22D-A756A15E8CCA}
 		{5D409034-74ED-4E35-8A94-4DA88EFB7AE5} = {A149DE7D-6942-43C9-B22D-A756A15E8CCA}
+		{D2FA9B31-9802-4E2F-AB05-FACE4969D2C8} = {B8323080-0DC8-4BD2-B711-E9B2D384E6B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF96A785-C61B-4ACE-9E2F-9FF43E3862AF}

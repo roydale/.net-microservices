@@ -13,7 +13,7 @@ namespace PlatformService.Api.Services
 			}
 			catch (Exception exception)
 			{
-				Console.WriteLine($"--> Could not send synchronously: {exception.Message}");
+				Console.WriteLine($"---> Could not send synchronously: {exception.Message}");
 			}
 		}
 	}

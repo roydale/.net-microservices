@@ -6,9 +6,18 @@ using PlatformService.Api.Services.SyncDataServices.Http;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-	options.UseInMemoryDatabase("InMemoryPlatform"));
+if (builder.Environment.IsProduction())
+{
+	Console.WriteLine("---> Using Sql Server database");
+	builder.Services.AddDbContext<AppDbContext>(options =>
+			options.UseSqlServer(builder.Configuration.GetConnectionString("Platform.Sql.Connection")));
+}
+else
+{
+	Console.WriteLine("---> Using In-Memory database");
+	builder.Services.AddDbContext<AppDbContext>(options =>
+			options.UseInMemoryDatabase("InMemoryPlatform"));
+}
 
 builder.Services.AddScoped<PlatformsService>();
 builder.Services.AddScoped<SyncDataService>();
@@ -21,12 +30,11 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-Console.WriteLine($"--> CommandService Endpoint: {builder.Configuration["CommandService"]}");
+Console.WriteLine($"---> CommandService Endpoint: {builder.Configuration["CommandService"]}");
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
@@ -35,5 +43,5 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-InitializeDatabase.PrePopulate(app);
+InitializeDatabase.PrePopulate(app, app.Environment.IsProduction());
 app.Run();

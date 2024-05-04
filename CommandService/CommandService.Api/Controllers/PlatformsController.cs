@@ -11,7 +11,7 @@ namespace CommandService.Api.Controllers
 		[HttpPost]
 		public IActionResult TestInboundConnection()
 		{
-			Console.WriteLine("--> Inbound POST # Command Service");
+			Console.WriteLine("---> Inbound POST # Command Service");
 			return Ok("Inbound test of Platforms Controller");
 		}
 	}
