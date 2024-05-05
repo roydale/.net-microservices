@@ -21,7 +21,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatformApi", "PlatformApi", "{9B67DA1A-B0FB-482A-AC4F-8111D1217A95}"
 	ProjectSection(SolutionItems) = preProject
 		Kubernetes_Deployments\PlatformApi\platform-cluster-ip-service.yaml = Kubernetes_Deployments\PlatformApi\platform-cluster-ip-service.yaml
-		Kubernetes_Deployments\PlatformApi\platform-mssql-deployment.yaml = Kubernetes_Deployments\PlatformApi\platform-mssql-deployment.yaml
 		Kubernetes_Deployments\PlatformApi\platform-node-port-service.yaml = Kubernetes_Deployments\PlatformApi\platform-node-port-service.yaml
 		Kubernetes_Deployments\PlatformApi\platform-service-deployment.yaml = Kubernetes_Deployments\PlatformApi\platform-service-deployment.yaml
 	EndProjectSection
