@@ -1,7 +1,18 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: mssql-command-storage-claim
+spec:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+        requests:
+            storage: 300Mi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: mssql-platform-deployment
+    name: mssql-command-deployment
 spec:
     replicas: 1
     selector:
@@ -29,9 +40,36 @@ spec:
                             name: mssql
                             key: MY_PASSWORD
                 volumeMounts:
-                  - mountPath: /var/opt/mssql/data
-                    name: mssqldb
+                  - name: mssqldb
+                    mountPath: /var/opt/mssql/data
             volumes:
               - name: mssqldb
                 persistentVolumeClaim:
-                    claimName: mssql-storage-claim
+                    claimName: mssql-command-storage-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: mssql-command-cluster-ip-service
+spec:
+    type: ClusterIP
+    selector:
+        app: mssql
+    ports:
+      - name: mssql
+        protocol: TCP
+        port: 31434
+        targetPort: 1433
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: mssql-command-load-balancer
+spec:
+    type: LoadBalancer
+    selector:
+        app: mssql
+    ports:
+      - protocol: TCP
+        port: 31434
+        targetPort: 1433

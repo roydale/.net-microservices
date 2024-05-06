@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes_Deployments", "Kubernetes_Deployments", "{A149DE7D-6942-43C9-B22D-A756A15E8CCA}"
 	ProjectSection(SolutionItems) = preProject
 		Kubernetes_Deployments\ingress-nginx-service.yaml = Kubernetes_Deployments\ingress-nginx-service.yaml
-		Kubernetes_Deployments\local-persistent-volume-claim.yaml = Kubernetes_Deployments\local-persistent-volume-claim.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker_Compose", "Docker_Compose", "{B8323080-0DC8-4BD2-B711-E9B2D384E6B0}"
@@ -33,9 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandApi", "CommandApi", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{5D409034-74ED-4E35-8A94-4DA88EFB7AE5}"
 	ProjectSection(SolutionItems) = preProject
-		Kubernetes_Deployments\MsSql\mssql-cluster-ip-service.yaml = Kubernetes_Deployments\MsSql\mssql-cluster-ip-service.yaml
-		Kubernetes_Deployments\MsSql\mssql-load-balancer-service.yaml = Kubernetes_Deployments\MsSql\mssql-load-balancer-service.yaml
-		Kubernetes_Deployments\MsSql\mssql-platform-deployment.yaml = Kubernetes_Deployments\MsSql\mssql-platform-deployment.yaml
+		Kubernetes_Deployments\MsSql\local-persistent-volume-claim.yaml = Kubernetes_Deployments\MsSql\local-persistent-volume-claim.yaml
+		Kubernetes_Deployments\MsSql\mssql-deployment.yaml = Kubernetes_Deployments\MsSql\mssql-deployment.yaml
 		Kubernetes_Deployments\MsSql\mssql-secret.yaml = Kubernetes_Deployments\MsSql\mssql-secret.yaml
 	EndProjectSection
 EndProject
