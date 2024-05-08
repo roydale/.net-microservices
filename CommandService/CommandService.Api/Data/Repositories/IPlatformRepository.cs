@@ -3,11 +3,13 @@
 namespace CommandService.Api.Data.Repositories
 {
 	public interface IPlatformRepository : IBaseRepository
-    {
-        IEnumerable<Platform> GetAll();
+	{
+		IEnumerable<Platform> GetAll();
 
-        void Create(Platform platform);
+		void Create(Platform platform);
 
-        bool IsExist(int id);
-    }
+		bool IsExist(int id);
+
+		bool IsExternalPlatformExist(int externalId);
+	}
 }

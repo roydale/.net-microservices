@@ -22,7 +22,7 @@ namespace PlatformService.Api.Data
 				}
 				catch (Exception exception)
 				{
-					Console.WriteLine($"---> Could not run migrations: {exception.Message}");
+					Console.WriteLine("---> Could not run migrations: {0}", exception.Message);
 				}
 			}
 

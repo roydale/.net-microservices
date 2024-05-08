@@ -10,7 +10,6 @@ namespace CommandService.Api.Profiles
 		{
 			// Source -> Target
 			CreateMap<Platform, PlatformReadDto>();
-			//CreateMap<PlatformCreateDto, Platform>();
 		}
 	}
 }

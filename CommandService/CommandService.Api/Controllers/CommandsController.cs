@@ -11,7 +11,7 @@ namespace CommandService.Api.Controllers
 		[HttpGet]
 		public ActionResult<IEnumerable<CommandReadDto>> GetCommandsByPlatformId(int platformId)
 		{
-			Console.WriteLine($"---> Getting All Commands by PlatformId: {platformId}");
+			Console.WriteLine("---> Getting All Commands by PlatformId: {0}", platformId);
 			var commands = _service.GetCommandsByPlatformId(platformId);
 			return commands.Any() ? Ok(commands) : NotFound();
 		}
@@ -19,7 +19,7 @@ namespace CommandService.Api.Controllers
 		[HttpGet("{commandId}", Name = "GetCommandByIdPlatformId")]
 		public ActionResult<CommandReadDto> GetCommandByIdPlatformId(int commandId, int platformId)
 		{
-			Console.WriteLine($"---> Getting Command by Command Id: {commandId}, Platform Id: {platformId}");
+			Console.WriteLine("---> Getting Command by Command Id: {0}, Platform Id: {1}", commandId, platformId);
 			var command = _service.GetCommandByIdPlatformId(commandId, platformId);
 			return command != null ? Ok(command) : NotFound();
 		}
@@ -27,7 +27,7 @@ namespace CommandService.Api.Controllers
 		[HttpPost]
 		public ActionResult<CommandReadDto> CreateCommandForPlatform(CommandCreateDto commandCreateDto, int platformId)
 		{
-			Console.WriteLine($"---> Creating Command for Platform: {platformId}");
+			Console.WriteLine("---> Creating Command for Platform: {0}", platformId);
 			var command = _service.CreateCommandForPlatform(commandCreateDto, platformId);
 			return command != null
 				? CreatedAtRoute(nameof(GetCommandByIdPlatformId), new { platformId, commandId = command.Id }, command)

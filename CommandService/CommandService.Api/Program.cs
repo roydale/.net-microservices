@@ -1,6 +1,8 @@
 using CommandService.Api.Data;
 using CommandService.Api.Data.Repositories;
+using CommandService.Api.EventProcessing;
 using CommandService.Api.Services;
+using CommandService.Api.Services.AsyncDataServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,9 +16,9 @@ var builder = WebApplication.CreateBuilder(args);
 //}
 //else
 //{
-	Console.WriteLine("---> Using In-Memory database (InMemoryCommandDb)");
-	builder.Services.AddDbContext<AppDbContext>(options =>
-			options.UseInMemoryDatabase("InMemoryCommandDb"));
+Console.WriteLine("---> Using In-Memory database (InMemoryCommandDb)");
+builder.Services.AddDbContext<AppDbContext>(options =>
+		options.UseInMemoryDatabase("InMemoryCommandDb"));
 //}
 
 builder.Services.AddScoped<PlatformsService>();
@@ -24,6 +26,9 @@ builder.Services.AddScoped<CommandsService>();
 
 builder.Services.AddScoped<ICommandRepository, CommandRepository>();
 builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
+
+builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+builder.Services.AddHostedService<MessageBusSubscriber>();
 
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

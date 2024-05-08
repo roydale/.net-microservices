@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes_Deployments", "Kubernetes_Deployments", "{A149DE7D-6942-43C9-B22D-A756A15E8CCA}"
 	ProjectSection(SolutionItems) = preProject
 		Kubernetes_Deployments\ingress-nginx-service.yaml = Kubernetes_Deployments\ingress-nginx-service.yaml
+		Kubernetes_Deployments\rabbitmq-deployment.yaml = Kubernetes_Deployments\rabbitmq-deployment.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker_Compose", "Docker_Compose", "{B8323080-0DC8-4BD2-B711-E9B2D384E6B0}"
