@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Services\SyncDataServices\Grpc\" />
+	  <Folder Include="Services\SyncDataServices\gRpc\" />
 	</ItemGroup>
 
 </Project>

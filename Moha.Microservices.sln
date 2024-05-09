@@ -9,33 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandService.Api", "Comma
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes_Deployments", "Kubernetes_Deployments", "{A149DE7D-6942-43C9-B22D-A756A15E8CCA}"
 	ProjectSection(SolutionItems) = preProject
+		Kubernetes_Deployments\command-service-deployment.yaml = Kubernetes_Deployments\command-service-deployment.yaml
 		Kubernetes_Deployments\ingress-nginx-service.yaml = Kubernetes_Deployments\ingress-nginx-service.yaml
+		Kubernetes_Deployments\local-persistent-volume-claim.yaml = Kubernetes_Deployments\local-persistent-volume-claim.yaml
+		Kubernetes_Deployments\mssql-deployment.yaml = Kubernetes_Deployments\mssql-deployment.yaml
+		Kubernetes_Deployments\mssql-secret.yaml = Kubernetes_Deployments\mssql-secret.yaml
+		Kubernetes_Deployments\platform-node-port-service.yaml = Kubernetes_Deployments\platform-node-port-service.yaml
+		Kubernetes_Deployments\platform-service-deployment.yaml = Kubernetes_Deployments\platform-service-deployment.yaml
 		Kubernetes_Deployments\rabbitmq-deployment.yaml = Kubernetes_Deployments\rabbitmq-deployment.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker_Compose", "Docker_Compose", "{B8323080-0DC8-4BD2-B711-E9B2D384E6B0}"
 	ProjectSection(SolutionItems) = preProject
 		Docker_Compose\docker-compose.yaml = Docker_Compose\docker-compose.yaml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatformApi", "PlatformApi", "{9B67DA1A-B0FB-482A-AC4F-8111D1217A95}"
-	ProjectSection(SolutionItems) = preProject
-		Kubernetes_Deployments\PlatformApi\platform-cluster-ip-service.yaml = Kubernetes_Deployments\PlatformApi\platform-cluster-ip-service.yaml
-		Kubernetes_Deployments\PlatformApi\platform-node-port-service.yaml = Kubernetes_Deployments\PlatformApi\platform-node-port-service.yaml
-		Kubernetes_Deployments\PlatformApi\platform-service-deployment.yaml = Kubernetes_Deployments\PlatformApi\platform-service-deployment.yaml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandApi", "CommandApi", "{DEF4577F-7E37-46D3-AC79-EBF4BE4A9A00}"
-	ProjectSection(SolutionItems) = preProject
-		Kubernetes_Deployments\CommandApi\command-cluster-ip-service.yaml = Kubernetes_Deployments\CommandApi\command-cluster-ip-service.yaml
-		Kubernetes_Deployments\CommandApi\command-service-deployment.yaml = Kubernetes_Deployments\CommandApi\command-service-deployment.yaml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{5D409034-74ED-4E35-8A94-4DA88EFB7AE5}"
-	ProjectSection(SolutionItems) = preProject
-		Kubernetes_Deployments\MsSql\local-persistent-volume-claim.yaml = Kubernetes_Deployments\MsSql\local-persistent-volume-claim.yaml
-		Kubernetes_Deployments\MsSql\mssql-deployment.yaml = Kubernetes_Deployments\MsSql\mssql-deployment.yaml
-		Kubernetes_Deployments\MsSql\mssql-secret.yaml = Kubernetes_Deployments\MsSql\mssql-secret.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{D2FA9B31-9802-4E2F-AB05-FACE4969D2C8}"
@@ -63,9 +49,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9B67DA1A-B0FB-482A-AC4F-8111D1217A95} = {A149DE7D-6942-43C9-B22D-A756A15E8CCA}
-		{DEF4577F-7E37-46D3-AC79-EBF4BE4A9A00} = {A149DE7D-6942-43C9-B22D-A756A15E8CCA}
-		{5D409034-74ED-4E35-8A94-4DA88EFB7AE5} = {A149DE7D-6942-43C9-B22D-A756A15E8CCA}
 		{D2FA9B31-9802-4E2F-AB05-FACE4969D2C8} = {B8323080-0DC8-4BD2-B711-E9B2D384E6B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

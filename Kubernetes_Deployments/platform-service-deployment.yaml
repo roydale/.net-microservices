@@ -15,3 +15,17 @@ spec:
             containers:
               - name: platform-service-api
                 image: rcaliwag/platform-service-api:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: platform-cluster-ip-service
+spec:
+    type: ClusterIP
+    selector:
+        app: platform-service-api
+    ports:
+      - name: platform-service-api
+        protocol: TCP
+        port: 8080
+        targetPort: 8080
