@@ -5,9 +5,9 @@ namespace PlatformService.Api.Data
 {
 	public static class InitializeDatabase
 	{
-		public static void PrePopulate(IApplicationBuilder app, bool isProduction)
+		public static void PrePopulate(IApplicationBuilder applicationBuilder, bool isProduction)
 		{
-			using var serviceScope = app.ApplicationServices.CreateScope();
+			using var serviceScope = applicationBuilder.ApplicationServices.CreateScope();
 			SeedData(serviceScope.ServiceProvider.GetService<AppDbContext>()!, isProduction);
 		}
 
@@ -28,7 +28,7 @@ namespace PlatformService.Api.Data
 
 			if (!context.Platforms.Any())
 			{
-				Console.WriteLine("---> Seeding Data...");
+				Console.WriteLine("---> Seeding Platforms data...");
 				context.Platforms.AddRange(
 					new Platform() { Name = ".Net", Publisher = "Microsoft", Cost = "Free" },
 					new Platform() { Name = "SQL Server Express", Publisher = "Microsoft", Cost = "Free" },

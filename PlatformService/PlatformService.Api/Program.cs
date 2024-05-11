@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PlatformService.Api.Data;
 using PlatformService.Api.Services;
 using PlatformService.Api.Services.AsyncDataServices;
+using PlatformService.Api.Services.SyncDataServices.Grpc;
 using PlatformService.Api.Services.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,11 +23,11 @@ else
 
 builder.Services.AddScoped<PlatformsService>();
 builder.Services.AddScoped<SyncDataService>();
-
 builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
-builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
+builder.Services.AddGrpc();
 
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -46,5 +47,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.MapGrpcService<GrpcPlatformService>();
+app.MapGet("/protos/platform.proto", async context =>
+{
+	await context.Response.WriteAsync(File.ReadAllText("Protos/platform.proto"));
+});
 InitializeDatabase.PrePopulate(app, app.Environment.IsProduction());
+
 app.Run();

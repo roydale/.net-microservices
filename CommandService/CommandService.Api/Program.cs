@@ -3,6 +3,7 @@ using CommandService.Api.Data.Repositories;
 using CommandService.Api.EventProcessing;
 using CommandService.Api.Services;
 using CommandService.Api.Services.AsyncDataServices;
+using CommandService.Api.Services.SyncDataServices.Grpc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,7 @@ builder.Services.AddScoped<CommandsService>();
 builder.Services.AddScoped<ICommandRepository, CommandRepository>();
 builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
 
+builder.Services.AddScoped<IPlatformDataClient, GrpcPlatformDataClient>();
 builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 builder.Services.AddHostedService<MessageBusSubscriber>();
 
@@ -44,11 +46,9 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
+InitializeDatabase.PrePopulate(app);
 
 app.Run();
