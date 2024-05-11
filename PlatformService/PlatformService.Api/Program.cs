@@ -12,13 +12,13 @@ if (builder.Environment.IsProduction())
 {
 	Console.WriteLine("---> Using Sql Server database (PlatformDb)");
 	builder.Services.AddDbContext<AppDbContext>(options =>
-			options.UseSqlServer(builder.Configuration.GetConnectionString("Platform.Sql.Connection")));
+		options.UseSqlServer(builder.Configuration.GetConnectionString("Platform.Sql.Connection")));
 }
 else
 {
 	Console.WriteLine("---> Using In-Memory database (InMemoryPlatformDb)");
 	builder.Services.AddDbContext<AppDbContext>(options =>
-			options.UseInMemoryDatabase("InMemoryPlatformDb"));
+		options.UseInMemoryDatabase("InMemoryPlatformDb"));
 }
 
 builder.Services.AddScoped<PlatformsService>();
@@ -37,6 +37,7 @@ builder.Services.AddSwaggerGen();
 Console.WriteLine("---> CommandService Endpoint: {0}", builder.Configuration["CommandService"]);
 
 var app = builder.Build();
+// ======================================================================================================
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -47,6 +48,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 app.MapGrpcService<GrpcPlatformService>();
 app.MapGet("/protos/platform.proto", async context =>
 {

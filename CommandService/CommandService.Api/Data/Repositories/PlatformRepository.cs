@@ -12,6 +12,12 @@ namespace CommandService.Api.Data.Repositories
 			_context.Platforms.Add(platform);
 		}
 
+		public void CreateAll(IEnumerable<Platform> platforms)
+		{
+			ArgumentNullException.ThrowIfNull(platforms);
+			_context.Platforms.AddRange(platforms);
+		}
+
 		public IEnumerable<Platform> GetAll()
 		{
 			return [.. _context.Platforms];
