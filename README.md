@@ -1,58 +1,57 @@
-Microservices Architecture<br/>
+Microservices Architecture (.Net)<br/>
 based on Les Jackson's Course [https://www.youtube.com/watch?v=DgVjEo3OGBI]
 
 Technologies Used:<br/>
-.Net 8, Docker, Kubernetes (K8s), RabbitMQ, Entity Franework Core (Model-First), gRPC
+<pre>.Net 8, Docker, Kubernetes (K8s), RabbitMQ, Entity Franework Core (Model-First), gRPC</pre>
 
 ![Kubernetes](https://github.com/roydale/.net-microservices/assets/157586512/085fafd6-0c37-4236-83aa-0e80bbad5333)
 
 Definitions:<br/>
-Cluster - Contains a set of "worker machines" called Nodes. Every cluster has at least 1 node.<br/>
-Cluster IP - A Service that exposes the container "internally" within the Cluster.<br/>
-Container - An image that has been executed, containing the app and it's dependencies.<br/>
-Image - The result of building an app and it's dependencies. Images are transferable units.<br/>
-Load Balancer - A Service that exposes a container externally.<br/>
-Node - A Node is "worker machine" that runs containerized applications.<br/>
-Node Port - A Service used for development purposes to expose containers externally.<br/>
-Pod
-<ul>
-  <li>Smallest K8s object. Represents a set of running containers.</li>
-  <li>Host and run containers. A single pod can have multiple containers.</li>
-  <li>The most common model is to have one container per pod, but a pod can also contain multiple containers that work together.</li>
-</ul>
-Kubernetes Ingress - an API object that helps developers expose their applications and manage external access by providing http/s routing rules to the services within a Kubernetes cluster.<br/>
-WSL 2 - <br/>
-Imperative Commands - Command Line<br/>
-Declarative Commands - Config Files<br/>
-Storage Concepts
-<ul>
-  <li>Persistent Volume Claim * - States a claim to some physical storage on the machine.</li>
-  <li>Persistent Volume</li>
-  <li>Storage Class</li>
-</ul>
-
+<pre>
+  Cluster - Contains a set of "worker machines" called Nodes. Every cluster has at least 1 node.
+  Cluster IP - A Service that exposes the container "internally" within the Cluster.
+  Container - An image that has been executed, containing the app and it's dependencies.
+  Image - The result of building an app and it's dependencies. Images are transferable units.
+  Load Balancer - A Service that exposes a container externally.
+  Node - A Node is "worker machine" that runs containerized applications.
+  Node Port - A Service used for development purposes to expose containers externally.
+  Pod
+    - Smallest K8S object. Represents a set of running containers.
+    - Host and run containers. A single pod can have multiple containers.
+    - The most common model is to have one container per pod, but a pod can also contain multiple containers that work together.
+  Kubernetes Ingress - an API object that helps developers expose their applications and manage external access by providing 
+                       http/s routing rules to the services within a Kubernetes cluster.
+  WSL 2 - 
+  Imperative Commands - Command Line
+  Declarative Commands - Config Files
+  Storage Concepts
+    - Persistent Volume Claim * - States a claim to some physical storage on the machine.
+    - Persistent Volume
+    - Storage Class
+</pre>
+  
 Docker Commands:<br/>
 <pre>
   -- Build a Docker image
   docker build -t [docker hub id]/[app name] . (Context) Path of your project that you want build an image of
-  docker build -t rcaliwag/platform-service-api .
-  docker build -t rcaliwag/command-service-api .
+  docker build -t [docker hub id]/platform-service-api .
+  docker build -t [docker hub id]/command-service-api .
   
   -- Share image to Docker Hub
   docker push [docker hub id]/[app name]:[tag]
-  docker push rcaliwag/platform-service-api
-  docker push rcaliwag/command-service-api
+  docker push [docker hub id]/platform-service-api
+  docker push [docker hub id]/command-service-api
   
   -- Pull an image from Docker Hub
   docker pull [docker hub id]/[app name]:[tag]
-  docker pull rcaliwag/platform-service-api:latest
-  docker push rcaliwag/command-service-api:latest
+  docker pull [docker hub id]/platform-service-api:latest
+  docker push [docker hub id]/command-service-api:latest
   
   -- Pulls an image (if needed) and runs a new container (-d = Detach mode: Run container in background and print container id)
-  docker run --name=platform_service_api -p 8000:8080 -d rcaliwag/platform-service-api
-  docker run --name=command-service-api -p 8001:8080 -d rcaliwag/command-service-api
-  docker run --name=platform_service_api -p 8000:8080 rcaliwag/platform-service-api
-  docker run --name=command-service-api -p 8001:8080 rcaliwag/command-service-api
+  docker run --name=platform_service_api -p 8000:8080 -d [docker hub id]/platform-service-api
+  docker run --name=command-service-api -p 8001:8080 -d [docker hub id]/command-service-api
+  docker run --name=platform_service_api -p 8000:8080 [docker hub id]/platform-service-api
+  docker run --name=command-service-api -p 8001:8080 [docker hub id]/command-service-api
   
   -- List all containers
   docker ps
